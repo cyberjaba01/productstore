@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Products{% endblock %}
+
+{% block body %}
+
+<h1>Product {{product.id}}</h1>
+<a href={{ path('homepage') }}>home</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Stock size</th>
+        </tr>
+    </thead>
+
+    <tbody>
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.size }}</td>
+            </tr>
+    </tbody>
+</table>
+
+{% endblock %}

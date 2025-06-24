@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Delete Product</h1>
+
+<span>Are you sure?</span>
+
+<form method="post">
+
+    <button>Yes</button>
+    <a href={{ url('product_index') }}>No</a>
+
+</form>
+
+
+{% endblock %}

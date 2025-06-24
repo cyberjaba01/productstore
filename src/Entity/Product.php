@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -21,6 +22,7 @@ class Product
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Assert\Positive]
     private ?int $size = null;
 
     public function getId(): ?int

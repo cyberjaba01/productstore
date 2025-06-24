@@ -7,6 +7,8 @@
 <h1>Products</h1>
 <a href={{ path('homepage') }}>home</a>
 
+<span>Want to create <a href={{ path('product_new') }}>new item?</a></span>
+
 <table>
     <thead>
         <tr>
@@ -21,7 +23,11 @@
         {% for product in products %}
             <tr>
                 <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
+                <td>
+                    <a href={{ path('product_item', {'id': product.id}) }}>
+                        {{ product.name }}
+                    </a>
+                </td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.size }}</td>
             </tr>

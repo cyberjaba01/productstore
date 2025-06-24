@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>New product</h1>
+<a href={{ path('homepage') }}>home</a> <a href={{ path('product_index') }}>products</a>
+
+{{ form(form) }}
+
+{% endblock %}

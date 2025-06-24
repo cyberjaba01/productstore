@@ -6,6 +6,7 @@ use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ProductForm extends AbstractType
 {
@@ -15,6 +16,7 @@ class ProductForm extends AbstractType
             ->add('name')
             ->add('description')
             ->add('size')
+            ->add('save', SubmitType::class, ['label' => 'Add new product'])
         ;
     }
 

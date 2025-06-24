@@ -5,6 +5,16 @@
 <h1>New product</h1>
 <a href={{ path('homepage') }}>home</a> <a href={{ path('product_index') }}>products</a>
 
-{{ form(form) }}
+{{ form_start(form) }}
+
+    {{ form_row(form.name) }}
+
+    {{ form_row(form.description) }}
+
+    {{ form_row(form.size) }}
+
+    {{ form_row(form.save, {'label': 'Save new product'}) }}
+
+{{ form_end(form) }}
 
 {% endblock %}

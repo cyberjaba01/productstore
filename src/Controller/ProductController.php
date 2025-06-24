@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\ProductRepository;
 use App\Entity\Product;
 use App\Form\ProductForm;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 final class ProductController extends AbstractController
 {
@@ -28,9 +30,21 @@ final class ProductController extends AbstractController
     }
 
     #[Route('/products/new', name: 'product_new')]
-    public function new(): Response
+    public function new(Request $request, EntityManagerInterface $manager): Response
     {
-        $form = $this->createForm(ProductForm::class);
+        $product = new Product;
+
+        $form = $this->createForm(ProductForm::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->persist($product);
+            $manager->flush();
+
+            return $this->redirectToRoute('product_item', [
+                'id' => $product->getId(),
+            ]);
+        }
 
         return $this->render('product/new.html.twig', [
             "form" => $form,

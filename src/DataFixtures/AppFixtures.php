@@ -17,7 +17,7 @@ class AppFixtures extends Fixture
 
         $manager->persist($product);
 
-            $product = new Product();
+        $product = new Product();
         $product->setName("Product two");
         $product->setDescription("Yet another product");
         $product->setSize(200);
